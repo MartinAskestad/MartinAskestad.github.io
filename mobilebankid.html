@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"
+          content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="btn btn-primary start-bank-id">Starta mobilt bankid</button>
+    <script>
+        var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        var redirect = encodeURIComponent(document.location.href);
+        var autoStartToken = '00000000-0000-0000-0000-000000000000';
+        var url = iOS ? "https://app.bankid.com/?autostarttoken=" + autoStartToken + "&redirect=" + redirect : "bankid:///?autostarttoken=" + autoStartToken + "&redirect=" + redirect;
+        document.querySelector('.start-bank-id').addEventListener('click', function () {
+            top.location = url;
+        });
+    </script>
+</body>
+
+</html>
