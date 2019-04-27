@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>MJPEG Kamera test</title>
+  </head>
+  <body>
+    <canvas
+      id="rune"
+      width="640"
+      height="480"
+      style="background: orange"
+    ></canvas>
+    <canvas
+      id="torsten"
+      width="640"
+      height="480"
+      style="background: orange"
+    ></canvas>
+    <!-- <video
+      src="http://192.71.196.71:8100/Mjpeg/0?authToken=61c2deb3-e61f-4a44-9260-08a1825f491b"
+      id="torsten"
+      width="640"
+      height="480"
+    ></video> -->
+    <script src="mjpeg.js"></script>
+    <script>
+      var torsten = new MJPEG.Player(
+        "torsten",
+        "http://192.71.196.71:8100/Mjpeg/1?authToken=21702ed2-5b86-4eff-99e4-aa64d9a79387"
+      );
+      torsten.start();
+
+      var rune = new MJPEG.Player(
+        "rune",
+        "http://192.71.196.71:8100/Mjpeg/0?authToken=61c2deb3-e61f-4a44-9260-08a1825f491b"
+      );
+      rune.start();
+    </script>
+  </body>
+</html>
